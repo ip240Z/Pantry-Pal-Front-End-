@@ -1,0 +1,11 @@
+.headerWrapper {
+    width: 99%;
+    height: 120px;
+    background-color: rgba(144, 238, 144, 0.485);
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    background-color: white;
+    width: auto;
+}
