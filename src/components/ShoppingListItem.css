@@ -1,0 +1,8 @@
+.shoppingListItem {
+    border: 1px solid black;
+}
+.shoppingListItemBtns{ 
+    display: flex;
+    gap: 10px;
+    border: 1px solid blue;
+}
