@@ -1,7 +1,13 @@
+import { Routes, Route } from "react-router-dom";
+import ShoppingListRender from "./ShoppingListRender";
+
+
 let MainRenderArea = () => {
     return (
         <main>
-            <div>This is the main render area</div>
+            <Routes>
+                <Route path="/shoppinglist" element={<ShoppingListRender/>}/>
+            </Routes>
         </main>
     )
 }
