@@ -1,7 +1,9 @@
+import Inventory from "./Inventory";
+
 let MainRenderArea = () => {
     return (
         <main>
-            <div>This is the main render area</div>
+            <div><Inventory /></div>
         </main>
     )
 }
