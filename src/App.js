@@ -3,14 +3,18 @@ import Header from './components/Header';
 import MainRenderArea from './components/MainRenderArea';
 import BottomNavBar from './components/BottomNavBar';
 import { BrowserRouter } from 'react-router-dom';
+import ShoppingListContext from './components/ShoppingListContext';
 
 function App() {
   return (
-    <div className="App">
+    <ShoppingListContext.Provider>
+      <div className="App">
         <Header />
         <MainRenderArea />
         <BottomNavBar />
-    </div>
+        <ShoppingListContext />
+      </div>
+    </ShoppingListContext.Provider>
   );
 }
 
