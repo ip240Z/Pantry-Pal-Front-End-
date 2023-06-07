@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import ShoppingListSearch from "./ShoppingListSearch";
+import ShoppingListContainer from "./ShoppingListContainer";
 
 let ShoppingListRender = () => {
     
@@ -21,7 +23,8 @@ let ShoppingListRender = () => {
     return (
         <section>
             <div>
-            Shopping list render section
+            <ShoppingListSearch />
+            <ShoppingListContainer />
             </div>
         </section>
     )
