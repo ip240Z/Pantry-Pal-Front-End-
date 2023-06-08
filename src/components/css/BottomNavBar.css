@@ -1,10 +1,10 @@
-.navWrapper{
+.navWrapper {
     position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     background-color: #efe4e1;
 }

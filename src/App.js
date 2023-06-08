@@ -5,11 +5,13 @@ import BottomNavBar from './components/BottomNavBar';
 
 function App() {
   return (
-    <div className="App">
+    <section className="App">
+      <div>
         <Header />
         <MainRenderArea />
         <BottomNavBar />
-    </div>  
+      </div>
+    </section>
   );
 }
 
