@@ -1,6 +1,11 @@
 
+import Inventory from "./InventoryComponents/Inventory";
 import Inventory from "./InventoryItem";
 import { Routes, Route } from "react-router-dom";
+import ShoppingListPage from "../ShoppingListComponents/ShoppingListPage";
+import { useEffect, useState } from "react";
+import ShoppingListContext from "../ShoppingListComponents/ShoppingListContext";
+import "../components/css/MainRenderArea.css"
 import ShoppingListRender from "./ShoppingListRender";
 import { useState } from "react";
 import ShoppingListContext from "./ShoppingListContext"
