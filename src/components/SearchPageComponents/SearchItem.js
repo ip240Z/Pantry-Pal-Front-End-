@@ -1,15 +1,21 @@
+import { useState } from "react";
+
 let SearchItem = (props) => {
+
+    const [itemData, setItemData] = useState(props.data);
+
+    let imageURL = `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
+
 return (
     <article className="searchedItem">
         <header>
             <span>
-                {props.name}
-                item name
+                {itemData.name}
             </span>
         </header>
         <body>
-            <div> Image goes here
-                <img src="" alt="" />
+            <div>
+                <img src={`${imageURL}`} alt="" />
             </div>
             <div className="searchItemBtns">
                 <button>

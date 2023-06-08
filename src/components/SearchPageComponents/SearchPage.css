@@ -1,0 +1,8 @@
+.searchResults {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid orange;
+    min-height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 25px;
+}

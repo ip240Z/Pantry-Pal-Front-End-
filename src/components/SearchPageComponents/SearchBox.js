@@ -7,17 +7,7 @@ let SearchBox = () => {
 
     const [itemSearch, setItemSearch] = useState({ searchString: "" })
 
-    const [searchSuggestions, setSearchSuggestions] = useState({ suggestionString: "" })
-
     const [searchData, setSearchData] = useState([]);
-
-    // let getSearchSuggestions = async (itemSearch) => {
-    //     try {
-    //         const response = await fetch(
-                
-    //         )
-    //     }
-    // }
 
     let getSearchItems = async (itemSearch) => {
         try {
@@ -43,7 +33,8 @@ let SearchBox = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let searchValue = itemSearch.searchString.toLowerCase();
-
+        getSearchItems(searchValue);
+        setItemSearch({ searchString: "" })
     }
 
     return (
