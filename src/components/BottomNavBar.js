@@ -1,6 +1,8 @@
+import "../components/css/BottomNavBar.css";
+
 let BottomNavBar = () => {
     return (
-        <footer>
+        <footer className="navWrapper">
             <div>This is the footer</div>
         </footer>
     )
