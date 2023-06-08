@@ -1,4 +1,4 @@
-
+import InventoryContainer from "./InventoryComponents/Inventory";
 
 import { Routes, Route } from "react-router-dom";
 import ShoppingListPage from "../ShoppingListComponents/ShoppingListPage";
