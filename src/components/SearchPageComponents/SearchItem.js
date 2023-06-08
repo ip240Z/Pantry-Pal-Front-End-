@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchItem.css"
 
 let SearchItem = (props) => {
 
@@ -14,8 +15,8 @@ return (
             </span>
         </header>
         <body>
-            <div>
-                <img src={`${imageURL}`} alt="" />
+            <div className="imageWrapper">
+                <img className="itemImage" src={`${imageURL}`} alt="" />
             </div>
             <div className="searchItemBtns">
                 <button>
