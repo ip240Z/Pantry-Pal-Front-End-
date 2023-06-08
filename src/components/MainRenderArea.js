@@ -1,9 +1,9 @@
 
-import Inventory from "./Inventory";
+import Inventory from "./InventoryComponents/Inventory";
 import { Routes, Route } from "react-router-dom";
-import ShoppingListRender from "./ShoppingListRender";
+import ShoppingListRender from "../ShoppingListComponents/ShoppingListRender";
 import { useEffect, useState } from "react";
-import ShoppingListContext from "./ShoppingListContext"
+import ShoppingListContext from "../ShoppingListComponents/ShoppingListContext"
 
 
 let MainRenderArea = () => {

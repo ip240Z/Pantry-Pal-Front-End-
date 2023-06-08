@@ -1,4 +1,4 @@
-import "./ShoppingListItem.css"
+import "../components/css/ShoppingListItem.css"
 
 let ShoppingListItem = (props) => {
 
