@@ -1,0 +1,53 @@
+.box {
+    border: 2px solid black;
+    border-color: black;
+    background: white;
+    height: 20vh;
+    width: 80vw;
+    /* box-shadow: 10px 10px 5px; */
+    filter: blur(var(--b));
+    position: relative;
+}
+
+.box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* change the degrees to shift the colors, chage the percentages to shift he color distribution */
+    background: linear-gradient(145deg, #ff3d00 -20%, #eeff00 100%);
+    transform: translate3d(34px, 18px, 0) scale(0.91);
+    filter: blur(5px);
+    opacity: var(1);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+
+
+
+
+
+
+
+
+
