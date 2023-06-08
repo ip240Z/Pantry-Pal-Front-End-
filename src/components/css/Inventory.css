@@ -1,0 +1,10 @@
+.inventoryPageWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    overflow-y:hidden;
+    width: 100vw;
+    height: 100vh;
+    
+}

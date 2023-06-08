@@ -1,9 +1,9 @@
-import './InventoryItemNearExpiration.css'
+import '../css/InventoryItemNearExpiration.css'
 
 const InventoryItemNearExpiration = (props) => {
     return (
         <>
-            <section className="itemNearExpiration">
+            <section className="box">
                 <img src="https://picsum.photos/150"/>
                 <div>{props.name}
                 <div>Qty: {props.quantity}</div>

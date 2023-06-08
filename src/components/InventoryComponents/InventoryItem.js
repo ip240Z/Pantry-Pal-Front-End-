@@ -1,9 +1,9 @@
-import "./InventoryItem.css"
+import "../css/InventoryItem.css"
 
 let InventoryItem = (props) => {
 
     return( 
-        <article className="inventoryItem">
+        <article className="box">
             <header>
                 <span>
                     {props.name}
