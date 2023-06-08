@@ -1,9 +1,10 @@
 
 import Inventory from "./InventoryComponents/Inventory";
 import { Routes, Route } from "react-router-dom";
-import ShoppingListRender from "../ShoppingListComponents/ShoppingListRender";
+import ShoppingListPage from "../ShoppingListComponents/ShoppingListPage";
 import { useEffect, useState } from "react";
-import ShoppingListContext from "../ShoppingListComponents/ShoppingListContext"
+import ShoppingListContext from "../ShoppingListComponents/ShoppingListContext";
+import "../components/css/MainRenderArea.css"
 
 
 let MainRenderArea = () => {
@@ -30,11 +31,11 @@ let MainRenderArea = () => {
     }, []);
 
     return (
-        <main>
+        <main className="mainAreaWrapper">
             <ShoppingListContext.Provider value={ { shoppingList, setShoppingList} }>
                 {/* <div><Inventory /></div> */}
                 <Routes>
-                    <Route path="/shoppinglist" element={<ShoppingListRender/>}/>
+                    <Route path="/shoppinglist" element={<ShoppingListPage/>}/>
                 </Routes>
             </ShoppingListContext.Provider>
         </main>

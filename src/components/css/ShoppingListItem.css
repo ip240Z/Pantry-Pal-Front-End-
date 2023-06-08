@@ -1,5 +1,7 @@
 .shoppingListItem {
     border: 1px solid black;
+    padding: 5px;
+    background-color: #e1ebe5;
 }
 .shoppingListItemBtns{ 
     display: flex;

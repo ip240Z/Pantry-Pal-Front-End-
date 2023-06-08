@@ -1,11 +1,11 @@
 .headerWrapper {
     width: 99%;
     height: 120px;
-    background-color: rgba(144, 238, 144, 0.485);
+    background-color: #799b7e;
     display: flex;
     justify-content: center;
 }
 .logo {
-    background-color: white;
+    background-color: #ffd8a9;
     width: auto;
 }
