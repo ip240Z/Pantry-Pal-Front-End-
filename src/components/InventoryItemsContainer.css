@@ -1,0 +1,7 @@
+.ItemWrapper {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    width: 100vw;
+    overflow-y: scroll;
+}
