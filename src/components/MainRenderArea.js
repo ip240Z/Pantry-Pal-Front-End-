@@ -1,7 +1,7 @@
 
 import Inventory from "./Inventory";
 import { Routes, Route } from "react-router-dom";
-import ShoppingListRender from "./ShoppingListRender";
+import ShoppingListRender from "./ShoppingListPage";
 import { useState } from "react";
 import ShoppingListContext from "./ShoppingListContext"
 
