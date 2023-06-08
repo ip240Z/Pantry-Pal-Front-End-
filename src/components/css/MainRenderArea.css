@@ -1,4 +1,5 @@
 .mainAreaWrapper{
     width: 100vw;
-    height: 75%;
+    height: 70vh;
+    overflow-y: hidden;
 }
