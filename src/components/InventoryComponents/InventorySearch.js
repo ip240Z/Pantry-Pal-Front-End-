@@ -1,11 +1,11 @@
 import { useState } from "react"
-
+import "../css/InventorySearch.css"
 const InventorySearch = () => {
-    return(
+    return (
 
-        <div>
+        <div className="branch">
             <header>
-                <p>Search Items to add to your inventory</p>
+                <p>Search Ingredients</p>
             </header>
 
             <input type="search" />
