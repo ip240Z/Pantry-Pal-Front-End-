@@ -1,5 +1,5 @@
 .mainAreaWrapper {
     width: 100vw;
-    height: 70vh;
-    /* overflow-y: hidden; */
+    height: 75%;
+    overflow-y: scroll;
 }
