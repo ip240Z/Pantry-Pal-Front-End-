@@ -1,8 +1,9 @@
-import "../css/InventoryItem.css"
+import '../css/InventoryItem.css'
+
 
 let InventoryItem = (props) => {
 
-    return( 
+    return (
         <article className="box">
             <header>
                 <span>
@@ -10,10 +11,10 @@ let InventoryItem = (props) => {
                 </span>
             </header>
             <body>
-                <div> 
+                <div>
                     <img src="https://picsum.photos/150" alt="" />
                 </div>
-                
+
             </body>
         </article>
     )

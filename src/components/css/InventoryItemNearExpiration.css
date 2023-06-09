@@ -7,6 +7,9 @@
     /* box-shadow: 10px 10px 5px; */
     filter: blur(var(--b));
     position: relative;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .box:before {
@@ -41,13 +44,14 @@
     left: 0;
     background: inherit;
     border-radius: inherit;
+    display: flex;
 }
 
+.image {
+    height: 20vh;
+    width: 30vw;
+}
 
-
-
-
-
-
-
-
+.infobox {
+    float: right;
+}
