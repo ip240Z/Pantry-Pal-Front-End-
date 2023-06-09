@@ -1,17 +1,24 @@
+import { useState } from "react";
 import "../components/css/ShoppingListItem.css"
 
 let ShoppingListItem = (props) => {
 
+    const [itemData, setItemData] = useState(props.data);
+
+    let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
+
+    console.log("SL item data: ", itemData)
+
     return( 
         <article className="shoppingListItem">
             <header>
-                <span>
-                    {props.name}
+                <span className="itemName">
+                    {itemData.name}
                 </span>
             </header>
             <body>
-                <div> Image goes here
-                    <img src="" alt="" />
+                <div> 
+                    <img className="itemImage" src={`${imageURL}`} alt="" />
                 </div>
                 <div className="shoppingListItemBtns">
                     <button>
