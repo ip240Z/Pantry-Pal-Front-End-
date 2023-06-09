@@ -4,15 +4,15 @@ import '../css/InventoryItem.css'
 let InventoryItem = (props) => {
 
     return (
-        <article className="box">
+        <article className="box2">
             <header>
-                <span>
+                <span className='YellowTag'>
                     {props.name}
                 </span>
             </header>
             <body>
                 <div>
-                    <img src="https://picsum.photos/150" alt="" />
+                    <img className='image2' src="https://picsum.photos/150" alt="" />
                 </div>
 
             </body>
