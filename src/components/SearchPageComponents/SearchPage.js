@@ -1,6 +1,6 @@
 import SearchBox from "./SearchBox";
 import SearchItem from "./SearchItem";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./SearchPage.css";
 
 let SearchPage = () => {
@@ -14,35 +14,41 @@ let SearchPage = () => {
     const [searchProductData, setSearchProductData] = useState();
 
 
+
+
     let getSearchItems = async (itemSearch) => {
         try {
             const response = await fetch(
                 `https://api.spoonacular.com/food/ingredients/search?query=${itemSearch}`,
-                { headers: {
-                    "x-api-key": `${APIKEY}`
-                }}
+                {
+                    headers: {
+                        "x-api-key": `${APIKEY}`
+                    }
+                }
             )
             if (!response.ok) {
                 throw new Error("Error fetching items");
-        };
-        let data = await response.json();
-        console.log("Data before adding image url", data)
-        setSearchItemData(await data)
-        console.log("searchItemData set to: ", searchItemData)
-    } catch (error) {
-        console.error("An error occurred: ", error);
+            };
+            let data = await response.json();
+            // console.log("Data before adding image url", data)
+            setSearchItemData(await data)
+            console.log("searchItemData set to: ", searchItemData)
+        } catch (error) {
+            console.error("An error occurred: ", error);
         }
     }
 
-    let getSearchProducts = async(itemSearch) => {
+    let getSearchProducts = async (itemSearch) => {
         try {
             const response = await fetch(
                 `https://api.spoonacular.com/food/products/search?query=${itemSearch}`,
-                {headers: {
-                    "x-api-key": `${APIKEY}`
-                }}
+                {
+                    headers: {
+                        "x-api-key": `${APIKEY}`
+                    }
+                }
             )
-            if(!resmponse.ok) {
+            if (!response.ok) {
                 throw new Error("Error fetching items");
             };
             let data = await response.json();
@@ -55,15 +61,18 @@ let SearchPage = () => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        setItemSearch({searchString: e.target.value})
+        setItemSearch({ searchString: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setSearchItemData()
+        setSearchProductData()
         let searchValue = itemSearch.searchString.toLowerCase();
-        getSearchItems(searchValue);
+        await getSearchItems(searchValue);
+        await getSearchProducts(searchValue)
         setItemSearch({ searchString: "" })
+        console.log(searchProductData)
     }
 
 
@@ -75,12 +84,12 @@ let SearchPage = () => {
                 </header>
                 <form className="searchForm" onSubmit={handleSubmit}>
                     <div>
-                        <input 
-                        type="text"
-                        name="itemSearch"
-                        placeholder="Item Search"
-                        value={itemSearch.searchString}
-                        onChange={handleChange}
+                        <input
+                            type="text"
+                            name="itemSearch"
+                            placeholder="Item Search"
+                            value={itemSearch.searchString}
+                            onChange={handleChange}
                         />
                     </div>
                     <button>Search</button>
@@ -88,10 +97,12 @@ let SearchPage = () => {
             </section>
             <section className="searchResults">
                 {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : "No items found"}
-                
+                {searchProductData ? searchProductData.products.map((productData, index) => <SearchItem key={index + "p"} data={productData} />) : "No product found"}
             </section>
         </main>
     )
+
+
 }
 
 export default SearchPage;
