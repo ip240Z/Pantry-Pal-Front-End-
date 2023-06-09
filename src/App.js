@@ -6,11 +6,9 @@ import BottomNavBar from './components/BottomNavBar';
 function App() {
   return (
     <section className="App">
-
-      <Header />
-      <MainRenderArea />
-      <BottomNavBar />
-
+        <Header />
+        <MainRenderArea />
+        <BottomNavBar />
     </section>
   );
 }

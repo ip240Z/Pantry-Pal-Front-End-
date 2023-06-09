@@ -5,7 +5,7 @@ let SearchItem = (props) => {
 
     const [itemData, setItemData] = useState(props.data);
 
-    let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
+    let imageURL = itemData.image.length > 25 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
 return (
     <article className="searchedItem">
