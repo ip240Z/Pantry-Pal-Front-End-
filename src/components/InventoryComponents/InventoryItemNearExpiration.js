@@ -3,7 +3,7 @@ import '../css/InventoryItemNearExpiration.css';
 
 const InventoryItemNearExpiration = (props) => {
     const [showPopup, setShowPopup] = useState(false);
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(0);
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -20,7 +20,7 @@ const InventoryItemNearExpiration = (props) => {
     };
 
     const handleResetQuantity = () => {
-        setQuantity(1);
+        setQuantity(0);
     };
 
     const handleRemoveItem = () => {
@@ -29,6 +29,7 @@ const InventoryItemNearExpiration = (props) => {
 
     const handleSubmit = () => {
         // Implement the logic to submit the quantity here
+        setShowPopup(false); // Hide the popup after submission
     };
 
     return (
@@ -37,16 +38,13 @@ const InventoryItemNearExpiration = (props) => {
                 <img className='image' src="https://picsum.photos/150" />
                 <div className='infobox'>
                     <div>
-                        {props.name}
+                        <h1>{props.name}</h1>
                         <div>Qty: {props.quantity}</div>
                         <div>Date old: </div>
                     </div>
 
-                    <div className='popup' element="myPopup">
-                        <button className="open-button" onClick={togglePopup}>...</button>
-                    </div>
-                    {showPopup && (
-                        <div className='popupBox'>
+                    <div className={`popup ${showPopup ? 'show' : ''}`} onClick={togglePopup}>
+                        <span className="popuptext" onClick={(e) => e.stopPropagation()}>
                             <div>
                                 <button onClick={handleDecreaseQuantity}>-</button>
                                 <span>{quantity}</span>
@@ -55,8 +53,9 @@ const InventoryItemNearExpiration = (props) => {
                             <button onClick={handleResetQuantity}>Reset</button>
                             <button onClick={handleRemoveItem}>Remove</button>
                             <button onClick={handleSubmit}>Submit</button>
-                        </div>
-                    )}
+                        </span>
+                        ...
+                    </div>
                 </div>
             </section>
         </>
