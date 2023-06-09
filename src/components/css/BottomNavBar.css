@@ -8,3 +8,14 @@
     height: 10vh;
     background-color: #efe4e1;
 }
+
+.navBtnWrapper{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.navBtnWrapper{
+    
+}
