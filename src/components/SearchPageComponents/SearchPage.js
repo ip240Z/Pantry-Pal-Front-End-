@@ -9,7 +9,10 @@ let SearchPage = () => {
 
     const [itemSearch, setItemSearch] = useState({ searchString: "" })
 
-    const [searchData, setSearchData] = useState();
+    const [searchItemData, setSearchItemData] = useState();
+
+    const [searchProductData, setSearchProductData] = useState();
+
 
     let getSearchItems = async (itemSearch) => {
         try {
@@ -24,10 +27,29 @@ let SearchPage = () => {
         };
         let data = await response.json();
         console.log("Data before adding image url", data)
-        setSearchData(await data)
-        console.log("searchData set to: ", searchData)
+        setSearchItemData(await data)
+        console.log("searchItemData set to: ", searchItemData)
     } catch (error) {
         console.error("An error occurred: ", error);
+        }
+    }
+
+    let getSearchProducts = async(itemSearch) => {
+        try {
+            const response = await fetch(
+                `https://api.spoonacular.com/food/products/search?query=${itemSearch}`,
+                {headers: {
+                    "x-api-key": `${APIKEY}`
+                }}
+            )
+            if(!resmponse.ok) {
+                throw new Error("Error fetching items");
+            };
+            let data = await response.json();
+            console.log("Product Data: ", data)
+            setSearchProductData(data)
+        } catch (error) {
+            console.error("An error ocurred: ", error);
         }
     }
 
@@ -38,7 +60,7 @@ let SearchPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSearchData()
+        setSearchItemData()
         let searchValue = itemSearch.searchString.toLowerCase();
         getSearchItems(searchValue);
         setItemSearch({ searchString: "" })
@@ -65,7 +87,8 @@ let SearchPage = () => {
                 </form>
             </section>
             <section className="searchResults">
-                {searchData ? searchData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : "No items found"}
+                {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : "No items found"}
+                
             </section>
         </main>
     )
