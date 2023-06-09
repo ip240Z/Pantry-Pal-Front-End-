@@ -19,11 +19,10 @@ let MainRenderArea = () => {
 
 
 
-
     useEffect(() => {
         const fetchShoppingList = async () => {
             try {
-                const response = await fetch(`${"http://localhost:3000/shoppinglist"}`)
+                const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/shoppinglist"}`)
                 if (!response.ok) {
                     throw new Error("Error fetching shopping list data")
                 }
