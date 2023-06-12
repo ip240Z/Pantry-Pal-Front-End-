@@ -25,7 +25,7 @@
     max-height: 150px;
 }
 
-.infobox {
+.infoBox {
     border: 1px solid black;
     display: flex;
     align-items: center;
@@ -33,6 +33,11 @@
     gap: 10px;
     background-color: #ffd8a9;
     margin-top: 10px;
+}
+.itemInfo{
+    padding: 10px;
+    font-weight: bold;
+    
 }
 
 .popup {
