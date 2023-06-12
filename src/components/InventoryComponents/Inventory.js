@@ -8,7 +8,7 @@ const InventoryContainer = () => {
 
     const { inventory, setInventory } = useContext(InventoryContext)
 
-
+    
     return (
         <section className='inventoryPageWrapper'>
             {inventory ? inventory.map((item,index) => <InventoryItemNearExpiration key={index} name={item.name} />): "Inventory is empty"}

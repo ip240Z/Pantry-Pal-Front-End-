@@ -10,7 +10,7 @@ let InventoryRender = () => {
             <div>
                 <InventorySearch />
             </div>
-            <InventoryContainer />
+                <InventoryContainer />
         </section>
     )
 }
