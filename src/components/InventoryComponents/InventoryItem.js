@@ -1,21 +1,25 @@
-import '../css/InventoryItem.css'
-
+import '../css/InventoryItem.css';
+import { useState } from "react";
 
 let InventoryItem = (props) => {
+
+    const [itemData, setItemData] = useState(props.itemData);
+
+    let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
     return (
         <article className="box2">
             <header>
                 <span className='YellowTag'>
-                    {props.name}
+                    {props.item}
                 </span>
             </header>
-            <body>
+            <div>
                 <div>
-                    <img className='image2' src="https://picsum.photos/150" alt="" />
+                    <img className='image2' src="" alt="" />
                 </div>
 
-            </body>
+            </div>
         </article>
     )
 }

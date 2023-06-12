@@ -8,13 +8,11 @@ const InventoryContainer = () => {
 
     const { inventory, setInventory } = useContext(InventoryContext)
 
-
+    
     return (
         <section className='inventoryPageWrapper'>
-            {inventory ? inventory.map((item,index) => <InventoryItemNearExpiration key={index} name={item.name} />): "Inventory is empty"}
-
-            {inventory ? inventory.map((item,index) => <InventoryItem key={index} name={item.name} />): "Inventory is empty"}
-        {/* {shoppingList ? shoppingList.map((item,index) => <ShoppingListItem key={index} name={item.name} image={item.image} />) : "Shopping list empty" } */}
+            {inventory ? inventory.map((item,index) => <InventoryItemNearExpiration key={index} itemData={item} />): "Inventory is empty"}
+            {inventory ? inventory.map((item,index) => <InventoryItem key={index} itemData={item} />): "Inventory is empty"}
     </section>
     )
 }

@@ -77,13 +77,12 @@ let SearchPage = () => {
 
 
     return (
-        <main>
+        <main className="searchPage">
             <section className="searchBoxWrapper">
-                <header>
-                    <h3>Search items to add to your inventory</h3>
+                <header className={"searchBoxHeader"}>
+                    Search items to add to your Inventory, or Shopping List
                 </header>
                 <form className="searchForm" onSubmit={handleSubmit}>
-                    <div>
                         <input
                             type="text"
                             name="itemSearch"
@@ -91,7 +90,6 @@ let SearchPage = () => {
                             value={itemSearch.searchString}
                             onChange={handleChange}
                         />
-                    </div>
                     <button>Search</button>
                 </form>
             </section>
