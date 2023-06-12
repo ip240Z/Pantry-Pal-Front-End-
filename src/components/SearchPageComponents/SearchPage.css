@@ -1,0 +1,7 @@
+.searchResults {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid orange;
+    overflow-y: scroll;
+    padding-bottom: 50px;
+}

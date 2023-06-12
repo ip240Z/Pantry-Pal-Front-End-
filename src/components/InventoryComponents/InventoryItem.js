@@ -1,20 +1,21 @@
-import "../css/InventoryItem.css"
+import '../css/InventoryItem.css'
+
 
 let InventoryItem = (props) => {
 
-    return( 
-        <article className="box">
+    return (
+        <article className="box2">
             <header>
-                <span>
+                <span className='YellowTag'>
                     {props.name}
                 </span>
             </header>
-            <body>
-                <div> 
-                    <img src="https://picsum.photos/150" alt="" />
+            <div>
+                <div>
+                    <img className='image2' src="https://picsum.photos/150" alt="" />
                 </div>
-                
-            </body>
+
+            </div>
         </article>
     )
 }

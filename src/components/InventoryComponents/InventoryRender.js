@@ -4,14 +4,13 @@ import InventoryContainer from "./Inventory";
 import InventoryItemNearExpiration from "./InventoryItemNearExpiration";
 
 let InventoryRender = () => {
-    
+
     return (
         <section>
             <div>
-            <InventorySearch />
-        
-            <InventoryContainer />
+                <InventorySearch />
             </div>
+            <InventoryContainer />
         </section>
     )
 }

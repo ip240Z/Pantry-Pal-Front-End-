@@ -8,9 +8,13 @@ const ShoppingListContainer = () => {
 
     const { shoppingList, setShoppingList } = useContext(ShoppingListContext)
 
+    const [listItems, setListItems] =useState(shoppingList)
+
+    console.log("Shopping list container context data",shoppingList)
+
     return (
         <section className="shoppingListItemContainer">
-            {shoppingList ? shoppingList.map((item,index) => <ShoppingListItem key={index} name={item.name} image={item.image} />) : "Shopping list empty" }
+            {listItems ? listItems.map((itemData, index) => <ShoppingListItem key={index} data={itemData} />) : "Shopping list empty" }
         </section>
     )
 
