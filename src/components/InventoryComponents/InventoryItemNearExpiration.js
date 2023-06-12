@@ -2,8 +2,31 @@ import React, { useState } from 'react';
 import '../css/InventoryItemNearExpiration.css';
 
 const InventoryItemNearExpiration = (props) => {
+  
+    const [itemData, setItemData] = useState(props.itemData)
     const [showPopup, setShowPopup] = useState(false);
     const [quantity, setQuantity] = useState(0);
+    
+    let imageURL = itemData.image.length > 25 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
+
+    let abrevTitle = (rawTitle) => {
+        if (rawTitle.length > 25) {
+            let titleArr = rawTitle.split("");
+            while (titleArr.length > 25) {
+                titleArr.pop();
+            }
+            return `${titleArr.join('')}...`
+        }
+        else {
+            return rawTitle
+        }
+    }
+
+    let dateCheck = (itemDate) => {
+        let diff = Date.now() - itemDate;
+        diff = diff / (3600 * 1000 * 24)
+        return Math.round(diff)
+    }
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -35,12 +58,12 @@ const InventoryItemNearExpiration = (props) => {
     return (
         <>
             <section className="box">
-                <img className='image' src="https://picsum.photos/150" />
+            <img src={`${imageURL}`}/>
                 <div className='infobox'>
                     <div>
-                        <h1>{props.name}</h1>
-                        <div>Qty: {props.quantity}</div>
-                        <div>Date old: </div>
+                        <h1>{abrevTitle(itemData.item)}</h1>
+                        <div>Qty: {itemData.quantity}</div>
+                        <div>Days old: {dateCheck(itemData.item_date)} </div>
                     </div>
 
                     <div className={`popup ${showPopup ? 'show' : ''}`} onClick={togglePopup}>

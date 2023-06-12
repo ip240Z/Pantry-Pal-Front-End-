@@ -7,13 +7,11 @@ let ShoppingListItem = (props) => {
 
     let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
-    console.log("SL item data: ", itemData)
-
     return( 
         <article className="shoppingListItem">
             <header>
                 <span className="itemName">
-                    {itemData.name}
+                    {itemData.item}
                 </span>
             </header>
             <body>

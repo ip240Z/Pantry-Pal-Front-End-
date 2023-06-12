@@ -16,7 +16,7 @@ let InventoryItem = (props) => {
             </header>
             <div>
                 <div>
-                    <img className='image2' src="" alt="" />
+                    <img className='image2' src={`${imageURL}`} alt="" />
                 </div>
 
             </div>
