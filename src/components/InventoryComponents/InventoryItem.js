@@ -10,12 +10,12 @@ let InventoryItem = (props) => {
                     {props.name}
                 </span>
             </header>
-            <body>
+            <div>
                 <div>
                     <img className='image2' src="https://picsum.photos/150" alt="" />
                 </div>
 
-            </body>
+            </div>
         </article>
     )
 }

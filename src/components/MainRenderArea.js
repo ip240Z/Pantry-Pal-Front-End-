@@ -1,5 +1,4 @@
 import InventoryContainer from "./InventoryComponents/Inventory";
-
 import { Routes, Route } from "react-router-dom";
 import ShoppingListPage from "../ShoppingListComponents/ShoppingListPage";
 import { useEffect, useState } from "react";
@@ -17,9 +16,6 @@ let MainRenderArea = () => {
     { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" },
     { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" }])
 
-
-
-
     useEffect(() => {
         const fetchShoppingList = async () => {
             try {
@@ -28,9 +24,7 @@ let MainRenderArea = () => {
                     throw new Error("Error fetching shopping list data")
                 }
                 const data = await response.json();
-                console.log("Shopping list fetched", data);
                 setShoppingList(data)
-                console.log(data)
             } catch (error) {
                 console.log('An error occurred: ', error)
             }
@@ -38,16 +32,34 @@ let MainRenderArea = () => {
         fetchShoppingList()
     }, []);
 
+    useEffect(() => {
+        const fetchinventory = async () => {
+            try {
+                const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/inventroy"}`)
+                if (!response.ok) {
+                    throw new Error("Error Fetching Inventory")
+                }
+                const data = await response.json();
+                setInventory(data)
+                console.log(inventory)
+            } catch (error) {
+                console.log('An error occurred: ', error)
+            }
+        }
+        fetchinventory()
+    }, [])
+
+
     return (
         <main className="mainAreaWrapper">
 
-            <ShoppingListContext.Provider value={ { shoppingList, setShoppingList} }>
-                <InventoryContext.Provider value={ {inventory, setInventory } }>
-                <Routes>    
-                    <Route path="/inventory" element={<InventoryRender/>}/>
-                    <Route path="/shoppinglist" element={<ShoppingListPage/>}/>
-                    <Route path="/itemsearch" element={<SearchPage />} />
-                </Routes>
+            <ShoppingListContext.Provider value={{ shoppingList, setShoppingList }}>
+                <InventoryContext.Provider value={{ inventory, setInventory }}>
+                    <Routes>
+                        <Route path="/inventory" element={<InventoryRender />} />
+                        <Route path="/shoppinglist" element={<ShoppingListPage />} />
+                        <Route path="/itemsearch" element={<SearchPage />} />
+                    </Routes>
                 </InventoryContext.Provider>
             </ShoppingListContext.Provider>
         </main>
