@@ -26,7 +26,6 @@
     width: 95%;
     gap: 10px;
     flex-wrap: wrap;
-    border: 1px solid orange;
     overflow-y: scroll;
     padding-bottom: 50px;
 }
