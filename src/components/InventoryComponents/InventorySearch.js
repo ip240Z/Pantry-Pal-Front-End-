@@ -5,7 +5,7 @@ const InventorySearch = () => {
 
         <div className="branch">
             <header>
-                <p>Search Ingredients</p>
+                <p>Search Inventory</p>
             </header>
 
             <input type="search" />
