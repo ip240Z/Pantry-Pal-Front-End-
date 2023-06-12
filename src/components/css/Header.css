@@ -2,11 +2,27 @@
     width: 99%;
     height: 100px;
     background-color: #799b7e;
+    padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex: none;
 }
+
+.LoginLogo {
+    display: flex;
+}
+
+.loginLink {
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
 .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
     background-color: #ffd8a9;
     width: auto;
 }
