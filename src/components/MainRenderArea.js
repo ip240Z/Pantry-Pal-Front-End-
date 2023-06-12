@@ -11,10 +11,11 @@ import InventoryRender from "./InventoryComponents/InventoryRender";
 
 let MainRenderArea = () => {
 
-    const [shoppingList, setShoppingList] = useState([{ "id": 2, "name": "Apple", "quantity": 2, "image": "apple.jpg" }])
-    const [inventory, setInventory] = useState([{ "id": 2, "name": "Apple", "quantity": 2, "image": "apple.jpg" }, { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" },
-    { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" },
-    { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" }])
+    const [shoppingList, setShoppingList] = useState([{ "id": 1, "name": "Didn't", "image": "banana.jpg" }, { "id": 2, "name": "Fetch", "image": "steak.jpg" }])
+    const [inventory, setInventory] = useState([{ "id": 2, "item": "Apple", "quantity": 2, "image": "apple.jpg" }, { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" },
+    { "id": 3, "item": "orange", "quantity": 3, "image": "orange.jpg" },
+    { "id": 3, "item": "orange", "quantity": 3, "image": "orange.jpg" }])
+
 
     useEffect(() => {
         const fetchShoppingList = async () => {
@@ -25,6 +26,7 @@ let MainRenderArea = () => {
                 }
                 const data = await response.json();
                 setShoppingList(data)
+                console.log("Here is the shopping list data: ", data)
             } catch (error) {
                 console.log('An error occurred: ', error)
             }
@@ -35,13 +37,13 @@ let MainRenderArea = () => {
     useEffect(() => {
         const fetchinventory = async () => {
             try {
-                const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/inventroy"}`)
+                const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/inventory"}`)
                 if (!response.ok) {
                     throw new Error("Error Fetching Inventory")
                 }
                 const data = await response.json();
                 setInventory(data)
-                console.log(inventory)
+                console.log("Here is the invetory data: ", inventory)
             } catch (error) {
                 console.log('An error occurred: ', error)
             }

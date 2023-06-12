@@ -4,6 +4,7 @@
     background-color: #799b7e;
     display: flex;
     justify-content: center;
+    flex: none;
 }
 .logo {
     background-color: #ffd8a9;
