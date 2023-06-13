@@ -1,17 +1,16 @@
 .inventoryPageWrapper {
     display: flex;
     gap: 10px;
-    align-items: flex-end;
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
     flex-wrap: wrap;
     justify-content: center;
-
-    /* justify-content: space-evenly; */
-
 }
 
+.inventoryItemsNearExpiration{
+    width: 85%;
+}
 .inventoryItems,
 .inventoryItemsNearExpiration {
     display: flex;

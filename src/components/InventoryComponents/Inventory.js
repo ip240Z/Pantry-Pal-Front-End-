@@ -5,11 +5,13 @@ import InventoryItem from "./InventoryItem"
 import InventoryItemNearExpiration from "./InventoryItemNearExpiration"
 
 const InventoryContainer = () => {
-    const { inventory, setInventory } = useContext(InventoryContext)
+    const { inventory, setInventory, fetchInventory } = useContext(InventoryContext)
     const [animateItems, setAnimateItems] = useState(false)
     const inventoryRef = useRef(null)
 
     useEffect(() => {
+        fetchInventory();
+
         const inventoryElement = inventoryRef.current
         const handleScroll = () => {
             const elementTop = inventoryElement.offsetTop
