@@ -6,7 +6,45 @@
     height: 100vh;
     overflow-y: scroll;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
     justify-content: center;
 
+    /* justify-content: space-evenly; */
+
+}
+
+.inventoryItems,
+.inventoryItemsNearExpiration {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    /* opacity: 0; */
+    transition: opacity 0.8s ease;
+
+}
+
+.inventoryItems,
+.inventoryItemsNearExpiration {
+    position: relative;
+    overflow: hidden;
+}
+
+.inventoryItems.animate,
+.inventoryItemsNearExpiration.animate {
+    animation: slideInFromLeft 0.8s ease;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

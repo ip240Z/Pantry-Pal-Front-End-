@@ -1,29 +1,77 @@
 import '../css/Inventory.css'
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect, useRef } from "react"
 import InventoryContext from "./InventoryContext"
 import InventoryItem from "./InventoryItem"
 import InventoryItemNearExpiration from "./InventoryItemNearExpiration"
 
 const InventoryContainer = () => {
-
     const { inventory, setInventory } = useContext(InventoryContext)
+    const [animateItems, setAnimateItems] = useState(false)
+    const inventoryRef = useRef(null)
 
-    // console.log("Inventory data: ", inventory)
+    useEffect(() => {
+        const inventoryElement = inventoryRef.current
+        const handleScroll = () => {
+            const elementTop = inventoryElement.offsetTop
+            const elementHeight = inventoryElement.offsetHeight
+            const windowHeight = window.innerHeight
+
+            if (window.pageYOffset > elementTop - windowHeight + elementHeight / 2) {
+                setAnimateItems(true)
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll)
+        handleScroll() // Check if items are already in view on component mount
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [])
 
     let dateCheck = (itemDate) => {
-        let diff = Date.now() - itemDate;
+        let diff = Date.now() - itemDate
         diff = diff / (3600 * 1000 * 24)
         return diff
     }
-    // console.log(Date.now())
-    
-    let itemsNearExpiration = inventory.filter((item, index) => item.is_perishable == true && dateCheck(item.item_date) > 14)
-    console.log(itemsNearExpiration)
+
+    let itemsNearExpiration = inventory.filter(
+        (item) => item.is_perishable && dateCheck(item.item_date) > 14
+    )
+
     return (
         <section className='inventoryPageWrapper'>
-            {itemsNearExpiration ? itemsNearExpiration.map((item,index) => <InventoryItemNearExpiration key={index} itemData={item} />): "Inventory is empty"}
-            {inventory ? inventory.map((item,index) => <InventoryItem key={index} itemData={item} />): "Inventory is empty"}
-    </section>
+            {itemsNearExpiration.length > 0 ? (
+                <div
+                    className={`inventoryItemsNearExpiration ${animateItems ? "animate" : ""
+                        }`}
+                >
+                    {itemsNearExpiration.map((item, index) => (
+                        <InventoryItemNearExpiration
+                            key={index}
+                            itemData={item}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div className="emptyInventoryMessage">Inventory is empty</div>
+            )}
+
+            {inventory.length > 0 ? (
+                <div
+                    ref={inventoryRef}
+                    className={`inventoryItems ${animateItems ? "animate" : ""
+                        }`}
+                >
+                    {inventory.map((item, index) => (
+                        <InventoryItem key={index} itemData={item} />
+                    ))}
+                </div>
+            ) : (
+                <div className="emptyInventoryMessage">Inventory is empty</div>
+            )}
+        </section>
     )
 }
-export default InventoryContainer;
+
+export default InventoryContainer
