@@ -1,12 +1,14 @@
 .box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     border: 2px solid black;
     border-color: black;
     background: white;
     height: 20vh;
-    width: 35vw;
-    /* box-shadow: 10px 10px 5px; */
-    filter: blur(var(--b));
-    position: relative;
+    width: 40%;
+    max-width: 200px;
 }
 
 .box2:before {
@@ -44,7 +46,7 @@
 }
 
 .image2 {
-    height: 17vh;
+    
 }
 
 .YellowTag {

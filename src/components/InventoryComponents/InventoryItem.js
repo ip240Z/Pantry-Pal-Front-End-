@@ -7,16 +7,30 @@ let InventoryItem = (props) => {
 
     let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
+    let abrevTitle = (rawTitle) => {
+        if (rawTitle.length > 25) {
+            let titleArr = rawTitle.split("");
+            while (titleArr.length > 25) {
+                titleArr.pop();
+            }
+            return `${titleArr.join('')}...`
+        }
+        else {
+            return rawTitle
+        }
+    }
+
+
     return (
         <article className="box2">
             <header>
                 <span className='YellowTag'>
-                    {props.item}
+                    {abrevTitle(itemData.item)}
                 </span>
             </header>
             <div>
-                <div>
-                    <img className='image2' src={`${imageURL}`} alt="" />
+                <div className='imageWrapper'>
+                    <img className='itemImage' src={`${imageURL}`} alt="" />
                 </div>
 
             </div>
