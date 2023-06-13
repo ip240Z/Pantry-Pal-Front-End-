@@ -12,7 +12,7 @@ const ShoppingListContainer = () => {
     useEffect(() => {
         fetchShoppingList()
     }, [])
-    
+
     const handleRemove = async (id) => {
         const reqOptions = {
             method: 'DELETE',

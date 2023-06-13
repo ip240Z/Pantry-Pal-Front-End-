@@ -25,6 +25,29 @@ let ShoppingListItem = (props) => {
         }
     }
 
+    const handleAddInventory = async (e) => {
+        e.preventDefault();
+        const reqOptions = {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${localStorage.getItem(token)}`,
+            },
+            body: JSON.stringify({ item: itemData.item, quantity: itemData.quantity, is_perishable: itemData.is_perishable, image: itemData.image })
+        }
+        try {
+            const response = await fetch('http://localhost:3000/inventory', reqOptions)
+            if(!response.ok) {
+                throw new Error("Error adding item to inventory")
+            }
+            const responseBody = await response.json()
+            console.log("Post request sent to add this item to inventory: ", responseBody)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return( 
         <article className="shoppingListItem">
             <header>
@@ -38,7 +61,7 @@ let ShoppingListItem = (props) => {
                 </div>
             </section>
                 <div className="shoppingListItemBtns">
-                    <button className="optionBtn">
+                    <button className="optionBtn" onClick={handleAddInventory}>
                         Inventory
                     </button>
                     <button className="removeBtn" onClick={() => props.delete(itemData.id)}>
