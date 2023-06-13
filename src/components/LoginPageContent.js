@@ -1,50 +1,80 @@
 import { Link, useNavigate } from "react-router-dom";
-import React from "react";
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState } from "react";
 
 const LoginPageContent = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleLogin = () => {
-        navigate("/loginPage");
-    };
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    return (
-        <article>
-            <header>
-                <h4>Login</h4>
-            </header>
-            <div className="LoginWrapper">
-                <section className="inputCredentials" >
-                    <div className="inputEmail">
-                        <h6>PLEASE ENTER YOUR EMAIL</h6>
-                        <input type="email" name="email" id="" />
-                    </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-                    <div className="inputPassword">
-                        <h6>PLEASE ENTER YOUR PASSWORD</h6>
-                        <input type="password" name="password" id="" />
-                    </div>
-                </section>
+    fetch('http://localhost:3000/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ username, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          navigate("/Header");
+        } else {
+          console.log(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
-                <section>
-                    <div>
-                        <button type="submit" onClick={handleLogin}>
-                            LOG IN
-                        </button>
-                    </div>
-                    <div>
-                        <Link className="SignUpLink" to="/register">
-                            Sign Up
-                        </Link>
-                    </div>
-                </section>
+  return (
+    <form onSubmit={handleSubmit}>
+      <article>
+        <header>
+          <h4>Login</h4>
+        </header>
+
+        <div className="LoginWrapper">
+          <section className="inputCredentials">
+            <div className="inputUsername">
+              <h6>PLEASE ENTER YOUR USERNAME</h6>
+              <input
+                type="username"
+                name="username"
+                value={username}
+                id=""
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
-        </article>
 
+            <div className="inputPassword">
+              <h6>PLEASE ENTER YOUR PASSWORD</h6>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                id=""
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </section>
 
-
-    );
+          <section>
+            <div>
+              <button type="submit">
+                LOG IN
+              </button>
+            </div>
+            <div>
+              <Link className="SignUpLink" to="/register">
+                Sign Up
+              </Link>
+            </div>
+          </section>
+        </div>
+      </article>
+    </form>
+  );
 };
 
 export default LoginPageContent;
