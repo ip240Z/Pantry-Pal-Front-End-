@@ -9,6 +9,7 @@ function App() {
     <section className="App">
       <Routes>
         <Route path={"/*"} element={[<Header />, <MainRenderArea />, <BottomNavBar />]} />
+        <Route path="/eader" component={Header} />
       </Routes>
     </section>
   );

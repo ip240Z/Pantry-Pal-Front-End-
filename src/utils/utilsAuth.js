@@ -11,7 +11,7 @@ export async function LoginPageContent(username, password) {
         }
     });
 
-    if (response.status !== 201) {
+    if (response.status !== 200) {
         throw new Error(`Request failed with status code ${response.status}`);
     }
     const { token } = await response.json();
@@ -21,7 +21,7 @@ export async function LoginPageContent(username, password) {
 
 
 export async function signUp(username, password) {
-    const response = await fetch('http://localhost:3003/register', {
+    const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         body: JSON.stringify({
             username,
@@ -58,7 +58,7 @@ export async function getLoggedInUser() {
         return null;
     }
 
-    const response = await fetch('http://localhost:3003/User', {
+    const response = await fetch('http://localhost:3000/User', {
         headers: {
             Authorization: `Bearer ${token}`
         }
