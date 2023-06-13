@@ -13,9 +13,6 @@ let SearchPage = () => {
 
     const [searchProductData, setSearchProductData] = useState();
 
-
-
-
     let getSearchItems = async (itemSearch) => {
         try {
             const response = await fetch(
@@ -30,7 +27,6 @@ let SearchPage = () => {
                 throw new Error("Error fetching items");
             };
             let data = await response.json();
-            // console.log("Data before adding image url", data)
             setSearchItemData(await data)
             console.log("searchItemData set to: ", searchItemData)
         } catch (error) {
@@ -72,7 +68,6 @@ let SearchPage = () => {
         await getSearchItems(searchValue);
         await getSearchProducts(searchValue)
         setItemSearch({ searchString: "" })
-        console.log(searchProductData)
     }
 
 
@@ -94,8 +89,8 @@ let SearchPage = () => {
                 </form>
             </section>
             <section className="searchResults">
-                {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : "No items found"}
-                {searchProductData ? searchProductData.products.map((productData, index) => <SearchItem key={index + "p"} data={productData} />) : "No product found"}
+                {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : ""}
+                {searchProductData ? searchProductData.products.map((productData, index) => <SearchItem key={index + "p"} data={productData} />) : ""}
             </section>
         </main>
     )

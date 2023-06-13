@@ -101,11 +101,13 @@ const InventoryItemNearExpiration = (props) => {
                     ...
                 </div>
             </header>
-            <section className="itemDesc">
+            <section className="infoBox">
                 <div className="imageWrapper">
                     <img className="itemImage" src={`${imageURL}`} alt={`Picture of ${itemData.item}`} />
                 </div>
-                <div className="searchItemBtns">
+                <div className="itemInfo">
+                    <p>Days old: {dateCheck(itemData.item_date)}</p>
+                    <p>Quantity: {itemData.quantity}</p>
                 </div>
             </section>
         </article>

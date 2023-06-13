@@ -14,19 +14,19 @@ let ShoppingListItem = (props) => {
                     {itemData.item}
                 </span>
             </header>
-            <body>
-                <div> 
+            <section className="shoppingListItemDesc">
+                <div className="imageWrapper"> 
                     <img className="itemImage" src={`${imageURL}`} alt="" />
                 </div>
+            </section>
                 <div className="shoppingListItemBtns">
-                    <button>
-                        add to inv
+                    <button className="optionBtn">
+                        Inventory
                     </button>
-                    <button>
-                        Remove from list
+                    <button className="removeBtn">
+                        Remove
                     </button>
                 </div>
-            </body>
         </article>
     )
 }

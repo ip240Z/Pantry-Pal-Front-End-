@@ -1,7 +1,7 @@
-.inventoryWrapper {
+.inventoryPage{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    height: auto;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
 }

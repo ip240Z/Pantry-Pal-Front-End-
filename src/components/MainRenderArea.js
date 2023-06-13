@@ -11,7 +11,7 @@ import InventoryRender from "./InventoryComponents/InventoryRender";
 
 let MainRenderArea = () => {
 
-    const [shoppingList, setShoppingList] = useState([{ "id": 1, "name": "Didn't", "image": "banana.jpg" }, { "id": 2, "name": "Fetch", "image": "steak.jpg" }])
+    const [shoppingList, setShoppingList] = useState([{ "id": 1, "item": "Didn't", "image": "banana.jpg" }, { "id": 2, "item": "Fetch", "image": "steak.jpg" }])
     const [inventory, setInventory] = useState([{ "id": 2, "item": "Apple", "quantity": 2, "image": "apple.jpg" }, { "id": 3, "name": "orange", "quantity": 3, "image": "orange.jpg" },
     { "id": 3, "item": "orange", "quantity": 3, "image": "orange.jpg" },
     { "id": 3, "item": "orange", "quantity": 3, "image": "orange.jpg" }])

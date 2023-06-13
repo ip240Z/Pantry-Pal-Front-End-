@@ -7,11 +7,19 @@
     border-radius: 10px;
     padding: 5px;
 }
+.searchItemHeader{
+    display: flex;
+    justify-content: space-between;
+}
 .itemName{
     font-size: large;
     font-weight: bold;
     width: fit-content;
     background-color: #ffd8a9;
+    margin: 0;
+}
+.perishContainer{
+
 }
 .imageWrapper{
     max-width: 100px;
@@ -19,6 +27,7 @@
 .itemImage{
     width: 100%;
     max-height: 150px;
+    border-radius: 5px;
 }
 .itemDesc{
     border: 1px solid black;
