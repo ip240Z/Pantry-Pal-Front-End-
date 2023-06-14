@@ -11,9 +11,18 @@ import { faListCheck } from '@fortawesome/free-solid-svg-icons'
 import "../components/css/BottomNavBar.css";
 
 let BottomNavBar = () => {
+
+    let copyrightStyle = {
+        width: "100%",
+        textAlign: "left",
+        paddingLeft: "10px",
+        fontWeight: "bolder",
+        fontSize: "16px"
+    }
+
     return (
         <footer className="navWrapper">
-            <div>Cannon Frog Studios</div>
+            <a href="https://ip240z.github.io/Anything-Is-Possible/" style={copyrightStyle}>© CannonFrog Studios</a>
             <nav className="navBtnWrapper">
                 <NavLink className={({ isActive }) => (isActive ? 'active' : 'NavLink')} to={"/"}><FontAwesomeIcon className="icon" icon={faHouse} /></NavLink>
                 <NavLink className={({ isActive }) => (isActive ? 'active' : 'NavLink')} to={"/inventory"}><FontAwesomeIcon className="icon" icon={faKitchenSet} /></NavLink>

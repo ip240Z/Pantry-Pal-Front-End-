@@ -3,9 +3,8 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    height: 25vh;
     width: 200px;
-    max-height: 300px;
+    max-height: 325px;
     max-width: 200px;
     border: 3px solid black;
     border-radius: 5px;
@@ -59,7 +58,7 @@
     padding: 0;
 }
 .itemDescWrapper{
-    height: 100%;
+    height: 95%;
     width: 100%;
     display: flex;
     justify-content: space-between;

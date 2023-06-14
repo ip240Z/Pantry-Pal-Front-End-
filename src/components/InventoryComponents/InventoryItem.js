@@ -12,9 +12,9 @@ let InventoryItem = (props) => {
     let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
     let abrevTitle = (rawTitle) => {
-        if (rawTitle.length > 25) {
+        if (rawTitle.length > 15) {
             let titleArr = rawTitle.split("");
-            while (titleArr.length > 25) {
+            while (titleArr.length > 15) {
                 titleArr.pop();
             }
             return `${titleArr.join('')}...`
