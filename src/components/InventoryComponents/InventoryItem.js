@@ -1,9 +1,13 @@
 import '../css/InventoryItem.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 let InventoryItem = (props) => {
 
     const [itemData, setItemData] = useState(props.itemData);
+    
+    useEffect(() => {
+        setItemData(props.itemData);
+      }, [props.itemData]);
 
     let imageURL = itemData.image.length > 20 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
@@ -30,7 +34,6 @@ let InventoryItem = (props) => {
         boxShadow: dateCheck(itemData.item_date) >= 7 ? "4px 4px yellow" : "4px 4px green"
     }
 
-
     return (
         <article style={shadowStyle} className="box2">
             <header className='inventoryItemHeader'>
@@ -49,10 +52,10 @@ let InventoryItem = (props) => {
                     {/* <p>
                         {itemData.quantity ? `Quantity: ${itemData.quantity}` : null}
                     </p> */}
-                    <button className='removeInvBtn'>
+                    <button className='removeInvBtn' onClick={() => props.delete(itemData.id)}>
                         Remove
                     </button>
-                    <button className='refreshInvBtn'>
+                    <button className='refreshInvBtn' onClick={() => props.refresh(itemData.id)}>
                         Refresh
                     </button>
                 </div>

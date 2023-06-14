@@ -36,13 +36,57 @@ const InventoryContainer = () => {
         diff = diff / (3600 * 1000 * 24)
         return diff
     }
+    
     let sortedInventory = inventory.sort((a, b) => a.item_date - b.item_date)
-    console.log(sortedInventory)
 
     let itemsNearExpiration = inventory.filter(
         (item) => item.is_perishable && dateCheck(item.item_date) > 14
     )
+    const handleRemove = async (id) => {
+        const reqOptions = {
+            method: 'DELETE',
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${localStorage.getItem(token)}`,
+            },
+            body: JSON.stringify({ id: id })
+        }
+        try {
+            const response = await fetch('http://localhost:3000/inventory', reqOptions)
+            if(!response.ok) {
+                throw new Error("Error deleting item from inventory")
+            }
+            const responseBody = await response.json()
+            console.log("Delete request sent to inventory: ", responseBody)
+        } catch (error) {
+            console.log(error);
+        }
+        await fetchInventory();
+    }
 
+    const handleRefresh = async (id) => {
+        const reqOptions = {
+            method: 'PUT',
+            mode: "cors",
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${localStorage.getItem(token)}`,
+            },
+            body: JSON.stringify({ id: id })
+        }
+        try {
+            const response = await fetch('http://localhost:3000/inventory', reqOptions)
+            if(!response.ok) {
+                throw new Error("Error updating inventory item")
+            }
+            const responseBody = await response.json()
+            console.log("PUT request sent to inventory", responseBody)
+        } catch (error) {
+            console.log(error);
+        }
+        await fetchInventory()
+    }
 
     return (
         <section className='inventoryPageWrapper'>
@@ -69,7 +113,7 @@ const InventoryContainer = () => {
                         }`}
                 >
                     {sortedInventory.map((item, index) => (
-                        <InventoryItem key={index} itemData={item} />
+                        <InventoryItem key={index} delete={handleRemove} refresh={handleRefresh} itemData={item} />
                     ))}
                 </div>
             ) : (
