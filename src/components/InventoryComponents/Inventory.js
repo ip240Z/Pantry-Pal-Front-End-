@@ -57,7 +57,7 @@ const InventoryContainer = () => {
             body: JSON.stringify({ id: id })
         }
         try {
-            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/inventory', reqOptions)
+            const response = await fetch('https://localhost:3000/inventory', reqOptions)
             if(!response.ok) {
                 throw new Error("Error deleting item from inventory")
             }
@@ -80,7 +80,7 @@ const InventoryContainer = () => {
             body: JSON.stringify({ id: id })
         }
         try {
-            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/inventory', reqOptions)
+            const response = await fetch('https://localhost:3000/inventory', reqOptions)
             if(!response.ok) {
                 throw new Error("Error updating inventory item")
             }

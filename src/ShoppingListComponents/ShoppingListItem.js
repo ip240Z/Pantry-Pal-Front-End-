@@ -37,7 +37,7 @@ let ShoppingListItem = (props) => {
             body: JSON.stringify({ item: itemData.item, quantity: itemData.quantity, is_perishable: itemData.is_perishable, image: itemData.image })
         }
         try {
-            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/inventory', reqOptions)
+            const response = await fetch('http://localhost:3000/inventory', reqOptions)
             if(!response.ok) {
                 throw new Error("Error adding item to inventory")
             }

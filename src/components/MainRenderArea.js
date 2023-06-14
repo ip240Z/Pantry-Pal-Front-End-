@@ -19,7 +19,7 @@ let MainRenderArea = () => {
     const fetchShoppingList = async () => {
         try {
             // const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/shoppinglist"}`)
-            const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/shoppinglist"}`)
+            const response = await fetch(`${"http://localhost:3000/shoppinglist"}`)
 
             if (!response.ok) {
                 throw new Error("Error fetching shopping list data")
@@ -34,7 +34,7 @@ let MainRenderArea = () => {
     
     const fetchInventory = async () => {
         try {
-            const response = await fetch(`${"https://pantry-pal-backend-r9v7.onrender.com/inventory"}`)
+            const response = await fetch(`${"http://localhost:3000/inventory"}`)
             if (!response.ok) {
                 throw new Error("Error Fetching Inventory")
             }

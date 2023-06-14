@@ -10,7 +10,7 @@ const LoginPageContent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('https://pantry-pal-backend-r9v7.onrender.com/login', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
       mode: "cors",
       headers: {
@@ -22,7 +22,7 @@ const LoginPageContent = () => {
       .then((data) => {
         console.log(username)
         if (data.success) {
-          navigate("https://pantry-pal-1a32.onrender.com/");
+          navigate("http://localhost:3001/");
         } else {
           console.log(data.error);
         }

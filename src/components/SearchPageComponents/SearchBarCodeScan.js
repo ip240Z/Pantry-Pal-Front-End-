@@ -29,11 +29,10 @@ const SearchBarCodeScan = (props) => {
         console.error("An error occurred: ", error);
       }
     };
-  
-  
+
     return (
         <div>
-            <section>
+            <section id="qr-code-scanner">
                 <Html5QrcodePlugin
                     fps={10}
                     qrbox={250}
