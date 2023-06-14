@@ -1,6 +1,6 @@
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import { useEffect } from 'react';
-
+import './Html5QrcodeScannerPlugin.css'
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
@@ -9,15 +9,20 @@ const createConfig = (props) => {
     if (props.fps) {
         config.fps = props.fps;
     }
-    if (props.qrbox) {
-        config.qrbox = props.qrbox;
-    }
+    // if (props.qrbox) {
+    //     config.qrbox = props.qrbox;
+    // }
     if (props.aspectRatio) {
         config.aspectRatio = props.aspectRatio;
     }
     if (props.disableFlip !== undefined) {
         config.disableFlip = props.disableFlip;
     }
+   { config.qrbox= {
+        width: 250,
+        height: 250,
+    
+    }}
     return config;
 };
 
@@ -28,11 +33,12 @@ const Html5QrcodePlugin = (props) => {
         const config = createConfig(props);
         const verbose = props.verbose === true;
         // Suceess callback is required.
-        if (!(props.qrCodeSuccessCallback)) {
-            throw "qrCodeSuccessCallback is required callback.";
-        }
+        // if (!(props.qrCodeSuccessCallback)) {
+        //     throw "qrCodeSuccessCallback is required callback.";
+        // }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
-        html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
+        // html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
+        html5QrcodeScanner.render(props.qrCodeSuccessCallback);
 
         // cleanup function when component will unmount
         return () => {

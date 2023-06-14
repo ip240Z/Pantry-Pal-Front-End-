@@ -1,18 +1,24 @@
-const App = (props) => {
+import Html5QrcodePlugin from "./Html5QrcodeScannerPlugin";
+
+const SearchBarCodeScan = (props) => {
 
     const onNewScanResult = (decodedText, decodedResult) => {
-        // handle decoded results here
+        console.log(decodedText, decodedResult)
     };
 
     return (
-        <div className="App">
-            <Html5QrcodePlugin
+        <div>
+            <Html5QrcodePlugin 
                 fps={10}
                 qrbox={250}
                 disableFlip={false}
                 qrCodeSuccessCallback={onNewScanResult}
-            />
-        </div>
-    );
-};
+                />
+            </div>
+        );
+    };
+    
+    export default SearchBarCodeScan
+            
+           
 

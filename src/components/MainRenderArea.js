@@ -7,7 +7,8 @@ import "../components/css/MainRenderArea.css"
 import SearchPage from "./SearchPageComponents/SearchPage";
 import InventoryContext from "./InventoryComponents/InventoryContext";
 import InventoryRender from "./InventoryComponents/InventoryRender";
-import SearchBarCodeScan from "./SearchPageComponents/Html5QrcodeScannertPlugin";
+// import SearchBarCodeScan from "./SearchPageComponents/Html5QrcodeScannerPlugin";
+import SearchBarCodeScan from "./SearchPageComponents/SearchBarCodeScan";
 
 
 let MainRenderArea = () => {
