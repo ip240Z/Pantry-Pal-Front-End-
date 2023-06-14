@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./SearchPage.css"
 
 let SearchBox = () => {
 
@@ -39,7 +39,7 @@ let SearchBox = () => {
 
     return (
         <article>
-            <header>
+            <header className="searchHeader">
                 <h3>Search items to add to your inventory</h3>
             </header>
             <form className="searchForm" onSubmit={handleSubmit}>

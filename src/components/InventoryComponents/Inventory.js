@@ -103,7 +103,7 @@ const InventoryContainer = () => {
                     ))}
                 </div>
             ) : (
-                <div className="emptyInventoryMessage">Inventory is empty</div>
+                <div className="emptyInventoryMessage">No items in danger of expiration</div>
             )}
 
             {inventory.length > 0 ? (
