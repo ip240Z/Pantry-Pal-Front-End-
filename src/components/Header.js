@@ -1,7 +1,7 @@
 import LoginPageContent from "./LoginPageContent"
 // import SignUpPage from "./SignUpPage"
 import "./css/Header.css"
-import { Routes, Route, NavLink } from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 
 let Header = () => {
     return (
@@ -9,8 +9,8 @@ let Header = () => {
             <header className="headerWrapper">
                 <div>
                     <button className="loginBtn"> 
-                        <NavLink to="/LoginPageContent">Login / Signup</NavLink>
-                        {/* <NavLink to="/SignUpPage">Login / Signup</NavLink> */}
+                        <Link to="/LoginPageContent">Login / Signup</Link>
+                        {/* <Link to="/SignUpPage">Login / Signup</Link> */}
                     </button>
                 </div>
                 <div className="logo">
