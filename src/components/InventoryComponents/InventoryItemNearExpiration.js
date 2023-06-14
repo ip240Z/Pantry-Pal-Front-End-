@@ -2,31 +2,32 @@ import React, { useState } from 'react';
 import '../css/InventoryItemNearExpiration.css';
 
 const InventoryItemNearExpiration = (props) => {
-
-    const [itemData, setItemData] = useState(props.itemData)
+    const [itemData, setItemData] = useState(props.itemData);
     const [showPopup, setShowPopup] = useState(false);
     const [quantity, setQuantity] = useState(0);
 
-    let imageURL = itemData.image.length > 25 ? itemData.image : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
+    let imageURL =
+        itemData.image.length > 25
+            ? itemData.image
+            : `https://spoonacular.com/cdn/ingredients_100x100/${itemData.image}`;
 
     let abrevTitle = (rawTitle) => {
         if (rawTitle.length > 25) {
-            let titleArr = rawTitle.split("");
+            let titleArr = rawTitle.split('');
             while (titleArr.length > 25) {
                 titleArr.pop();
             }
-            return `${titleArr.join('')}...`
+            return `${titleArr.join('')}...`;
+        } else {
+            return rawTitle;
         }
-        else {
-            return rawTitle
-        }
-    }
+    };
 
     let dateCheck = (itemDate) => {
         let diff = Date.now() - itemDate;
-        diff = diff / (3600 * 1000 * 24)
-        return Math.round(diff)
-    }
+        diff = diff / (3600 * 1000 * 24);
+        return Math.round(diff);
+    };
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -56,32 +57,6 @@ const InventoryItemNearExpiration = (props) => {
     };
 
     return (
-        // <section className="box">
-        //     <div className='imageWrapper'>
-        //         <img className="itemImage" src={`${imageURL}`}/>
-        //     </div>
-        //     <div className='infobox'>
-        //         <div>
-        //             <h1>{abrevTitle(itemData.item)}</h1>
-        //             <div>Qty: {itemData.quantity}</div>
-        //             <div>Days old: {dateCheck(itemData.item_date)} </div>
-        //         </div>
-        //         <div className={`popup ${showPopup ? 'show' : ''}`} onClick={togglePopup}>
-        //             <span className="popuptext" onClick={(e) => e.stopPropagation()}>
-        //                 <div>
-        //                     <button onClick={handleDecreaseQuantity}>-</button>
-        //                     <span>{quantity}</span>
-        //                     <button onClick={handleIncreaseQuantity}>+</button>
-        //                 </div>
-        //                 <button onClick={handleResetQuantity}>Reset</button>
-        //                 <button onClick={handleRemoveItem}>Remove</button>
-        //                 <button onClick={handleSubmit}>Submit</button>
-        //             </span>
-        //             ...
-        //         </div>
-        //     </div>
-        // </section>
-
         <article className="box">
             <header className="itemHeader">
                 <div>
@@ -89,14 +64,18 @@ const InventoryItemNearExpiration = (props) => {
                 </div>
                 <div className={`popup ${showPopup ? 'show' : ''}`} onClick={togglePopup}>
                     <span className="popuptext" onClick={(e) => e.stopPropagation()}>
-                        <div>
-                            <button onClick={handleDecreaseQuantity}>-</button>
-                            <span>{quantity}</span>
-                            <button onClick={handleIncreaseQuantity}>+</button>
-                        </div>
-                        <button onClick={handleResetQuantity}>Reset</button>
-                        <button onClick={handleRemoveItem}>Remove</button>
-                        <button onClick={handleSubmit}>Submit</button>
+                        {showPopup && (
+                            <>
+                                <div>
+                                    <button onClick={handleDecreaseQuantity}>-</button>
+                                    <span>{quantity}</span>
+                                    <button onClick={handleIncreaseQuantity}>+</button>
+                                </div>
+                                <button onClick={handleResetQuantity}>Reset</button>
+                                <button onClick={() => props.delete(itemData.id)}>Remove</button>
+                                <button onClick={() => props.refresh(itemData.id)}>Refresh</button>
+                            </>
+                        )}
                     </span>
                     ...
                 </div>

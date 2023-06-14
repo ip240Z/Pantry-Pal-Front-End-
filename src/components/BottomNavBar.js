@@ -17,7 +17,8 @@ let BottomNavBar = () => {
         textAlign: "left",
         paddingLeft: "10px",
         fontWeight: "bolder",
-        fontSize: "16px"
+        fontSize: "16px",
+        color: "black",
     }
 
     return (
