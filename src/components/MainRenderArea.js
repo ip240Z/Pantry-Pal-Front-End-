@@ -7,6 +7,8 @@ import "../components/css/MainRenderArea.css"
 import SearchPage from "./SearchPageComponents/SearchPage";
 import InventoryContext from "./InventoryComponents/InventoryContext";
 import InventoryRender from "./InventoryComponents/InventoryRender";
+// import SearchBarCodeScan from "./SearchPageComponents/Html5QrcodeScannerPlugin";
+import SearchBarCodeScan from "./SearchPageComponents/SearchBarCodeScan";
 
 
 let MainRenderArea = () => {
@@ -58,6 +60,7 @@ let MainRenderArea = () => {
                         <Route path="/inventory" element={<InventoryRender />} />
                         <Route path="/shoppinglist" element={<ShoppingListPage />} />
                         <Route path="/itemsearch" element={<SearchPage />} />
+                        <Route path="/barcodescan" element={<SearchBarCodeScan />} />
                     </Routes>
                 </InventoryContext.Provider>
             </ShoppingListContext.Provider>

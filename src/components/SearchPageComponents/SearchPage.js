@@ -87,6 +87,7 @@ let SearchPage = () => {
                         />
                     <button>Search</button>
                 </form>
+                <button>Scan Barcode</button>
             </section>
             <section className="searchResults">
                 {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : ""}
