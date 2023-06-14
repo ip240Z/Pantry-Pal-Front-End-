@@ -12,23 +12,23 @@ const InventoryContainer = () => {
     useEffect(() => {
         fetchInventory();
 
-        const inventoryElement = inventoryRef.current
-        const handleScroll = () => {
-            const elementTop = inventoryElement.offsetTop
-            const elementHeight = inventoryElement.offsetHeight
-            const windowHeight = window.innerHeight
+        // const inventoryElement = inventoryRef.current
+        // const handleScroll = () => {
+        //     const elementTop = inventoryElement.offsetTop
+        //     const elementHeight = inventoryElement.offsetHeight
+        //     const windowHeight = window.innerHeight
 
-            if (window.pageYOffset > elementTop - windowHeight + elementHeight / 2) {
-                setAnimateItems(true)
-            }
-        }
+        //     if (window.pageYOffset > elementTop - windowHeight + elementHeight / 2) {
+        //         setAnimateItems(true)
+        //     }
+        // }
 
-        window.addEventListener("scroll", handleScroll)
-        handleScroll() // Check if items are already in view on component mount
+        // window.addEventListener("scroll", handleScroll)
+        // handleScroll() // Check if items are already in view on component mount
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll)
-        }
+        // return () => {
+        //     window.removeEventListener("scroll", handleScroll)
+        // }
     }, [])
 
     let dateCheck = (itemDate) => {
@@ -36,10 +36,13 @@ const InventoryContainer = () => {
         diff = diff / (3600 * 1000 * 24)
         return diff
     }
+    let sortedInventory = inventory.sort((a, b) => a.item_date - b.item_date)
+    console.log(sortedInventory)
 
     let itemsNearExpiration = inventory.filter(
         (item) => item.is_perishable && dateCheck(item.item_date) > 14
     )
+
 
     return (
         <section className='inventoryPageWrapper'>
@@ -65,7 +68,7 @@ const InventoryContainer = () => {
                     className={`inventoryItems ${animateItems ? "animate" : ""
                         }`}
                 >
-                    {inventory.map((item, index) => (
+                    {sortedInventory.map((item, index) => (
                         <InventoryItem key={index} itemData={item} />
                     ))}
                 </div>

@@ -51,7 +51,7 @@ let ShoppingListItem = (props) => {
     return( 
         <article className="shoppingListItem">
             <header>
-                <span className="itemName">
+                <span className="shoppingItemName">
                     {abrevTitle(itemData.item)}
                 </span>
             </header>

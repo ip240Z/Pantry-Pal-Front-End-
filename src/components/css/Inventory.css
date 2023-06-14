@@ -1,8 +1,10 @@
 .inventoryPageWrapper {
     display: flex;
     gap: 10px;
-    width: 100vw;
+    width: 80%;
+    min-width: 350px;
     height: 100vh;
+    padding-bottom: 50px;
     overflow-y: scroll;
     flex-wrap: wrap;
     justify-content: center;
