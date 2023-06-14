@@ -8,7 +8,7 @@ let Header = () => {
         <>
             <header className="headerWrapper">
                 <div>
-                    <button>
+                    <button className="loginBtn"> 
                         <NavLink to="/LoginPageContent">Login / Signup</NavLink>
                         {/* <NavLink to="/SignUpPage">Login / Signup</NavLink> */}
                     </button>
