@@ -22,7 +22,7 @@ let BottomNavBar = () => {
 
     return (
         <footer className="navWrapper">
-            <a href="https://ip240z.github.io/Anything-Is-Possible/" style={copyrightStyle}>© CannonFrog Studios</a>
+            <a href="https://ip240z.github.io/Anything-Is-Possible/" target={"_blank"} style={copyrightStyle}>© CannonFrog Studios</a>
             <nav className="navBtnWrapper">
                 <NavLink className={({ isActive }) => (isActive ? 'active' : 'NavLink')} to={"/"}><FontAwesomeIcon className="icon" icon={faHouse} /></NavLink>
                 <NavLink className={({ isActive }) => (isActive ? 'active' : 'NavLink')} to={"/inventory"}><FontAwesomeIcon className="icon" icon={faKitchenSet} /></NavLink>
