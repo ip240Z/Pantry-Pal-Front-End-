@@ -12,19 +12,26 @@ const LoginPageContent = () => {
 
     fetch('http://localhost:3000/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      mode: "cors",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: username, password: password }),
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(username)
         if (data.success) {
-          navigate("/Header");
+          navigate("http://localhost:3002/");
         } else {
-          console.log(data.message);
+          console.log(data.error);
         }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
+
+      
   };
 
   return (
