@@ -33,7 +33,7 @@ let SearchItem = (props) => {
             body: JSON.stringify({ item: (itemData.name || itemData.title), image: imageURL, is_perishable: isChecked, item_date: 12345 })
         }
         try {
-            const response = await fetch('http://localhost:3000/inventory', postOptions)
+            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/inventory', postOptions)
             if(!response.ok) {
                 throw new Error("Error updating the Inventory")
             }
@@ -56,7 +56,7 @@ let SearchItem = (props) => {
             body: JSON.stringify({ item: (itemData.name || itemData.title), image: imageURL, is_perishable: isChecked })
         }
         try {
-            const response = await fetch('http://localhost:3000/shoppinglist', postOptions)
+            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/shoppinglist', postOptions)
             if(!response.ok) {
                 throw new Error("Error updating the shopping list")
             }

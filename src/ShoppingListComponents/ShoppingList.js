@@ -24,7 +24,7 @@ const ShoppingListContainer = () => {
             body: JSON.stringify({ id: id })
         }
         try {
-            const response = await fetch('http://localhost:3000/shoppinglist', reqOptions)
+            const response = await fetch('https://pantry-pal-backend-r9v7.onrender.com/shoppinglist', reqOptions)
             if(!response.ok) {
                 throw new Error("Error deleting item from shopping list")
             }
