@@ -1,6 +1,7 @@
 import SearchBox from "./SearchBox";
 import SearchItem from "./SearchItem";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./SearchPage.css";
 
 let SearchPage = () => {
@@ -87,7 +88,9 @@ let SearchPage = () => {
                         />
                     <button>Search</button>
                 </form>
-                <button>Scan Barcode</button>
+                <NavLink to={"/barcodescan"}>
+                    <button>Scan Barcode</button>
+                </NavLink>
             </section>
             <section className="searchResults">
                 {searchItemData ? searchItemData.results.map((itemData, index) => <SearchItem key={index + "i"} data={itemData} />) : ""}
