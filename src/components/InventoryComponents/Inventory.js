@@ -42,6 +42,10 @@ const InventoryContainer = () => {
     let itemsNearExpiration = inventory.filter(
         (item) => item.is_perishable && dateCheck(item.item_date) > 14
     )
+    let freshItems =sortedInventory.filter(
+        (item) => item.is_perishable && dateCheck(item.item_date) < 14
+    )
+    
     const handleRemove = async (id) => {
         const reqOptions = {
             method: 'DELETE',
@@ -99,6 +103,8 @@ const InventoryContainer = () => {
                         <InventoryItemNearExpiration
                             key={index}
                             itemData={item}
+                            delete={handleRemove} 
+                            refresh={handleRefresh}
                         />
                     ))}
                 </div>
@@ -112,7 +118,7 @@ const InventoryContainer = () => {
                     className={`inventoryItems ${animateItems ? "animate" : ""
                         }`}
                 >
-                    {sortedInventory.map((item, index) => (
+                    {freshItems.map((item, index) => (
                         <InventoryItem key={index} delete={handleRemove} refresh={handleRefresh} itemData={item} />
                     ))}
                 </div>

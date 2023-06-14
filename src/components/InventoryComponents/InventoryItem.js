@@ -31,7 +31,7 @@ let InventoryItem = (props) => {
     }
 
     let shadowStyle = {
-        boxShadow: dateCheck(itemData.item_date) >= 7 ? "4px 4px yellow" : "4px 4px green"
+        boxShadow: dateCheck(itemData.item_date) >= 7 ? "4px 4px goldenrod" : "4px 4px green"
     }
 
     return (
